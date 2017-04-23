@@ -9,7 +9,8 @@
                     <input type="text"
                            id="email"
                            name="email"
-                           placeholder="jon.snow@king.com">
+                           placeholder="jon.snow@king.com"
+                           value="<?= $_REQUEST['email']??'';?>"
                     <span class="textfield__label">Votre email</span></label>
             </div>
             <div>

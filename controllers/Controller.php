@@ -5,9 +5,9 @@ namespace Controllers;
 
 class Controller
 {
-    protected function checkLogin(){
+    protected function check_session(){
         if ( !isset($_SESSION['user']) ){
-            header(APP_URL);
+            header('Location: ' . APP_URL);
             exit;
         }
         return true;

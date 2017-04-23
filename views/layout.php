@@ -9,12 +9,12 @@
           href="./views/css/screen.css">
 </head>
 <body>
-<header class="wrapper grid">
-    <a href="index.php">Todolist</a>
-</header>
-<?php include $data['view']; ?>
-<footer class="wrapper">
-    <p class="ta-right">Made by Eric in 2017</p>
-</footer>
+    <header class="wrapper grid">
+        <a href="index.php">Todolist</a>
+    </header>
+    <?php include $data['view']; ?>
+    <footer class="wrapper">
+        <p class="ta-right">Made by Eric in 2017</p>
+    </footer>
 </body>
 </html>
