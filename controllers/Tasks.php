@@ -23,4 +23,13 @@ class Tasks extends Controller
         $this->model->insert_task();
         header('location: index.php?r=tasks&a=index');
     }
+
+
+    public function delete(){
+        $this->check_session();
+        if ($this->model->check_task_owner()){
+            $this->model->delete_task();
+        }
+        header('location: index.php?r=tasks&a=index');
+    }
 }

@@ -59,4 +59,12 @@ class Model{
         $this->sql_request($sql_prepare, [], $fetch_mode);
     }
 
+
+    protected function delete($tab, $id_name, $id_val){
+        $sql_prepare = "DELETE FROM $tab WHERE $id_name = $id_val";
+        //$sql_param = [':tab' => $tab, ':id_name' => $id_name, ':id_val' => $id_val]; //ça ne va pas...
+        $fetch_mode = false;
+        $this->sql_request($sql_prepare, [], $fetch_mode);
+    }
+
 }

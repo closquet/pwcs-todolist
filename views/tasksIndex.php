@@ -5,26 +5,26 @@
             <li>
                 <div class="task grid">
                         <form action="index.php" method="post">
-                            <label for="<?= $task->id; ?>" class="checkbox <?php if ($task->is_done){echo 'done';} ?>">
-                                <input title="Changer le statut" type="checkbox" id="<?= $task->id; ?>" name="is_done"<?php if ($task->is_done){echo 'checked';} ?>>
+                            <label for="<?= $task->task_id; ?>" class="checkbox <?php if ($task->is_done){echo 'done';} ?>">
+                                <input title="Changer le statut" type="checkbox" id="<?= $task->task_id; ?>" name="is_done"<?php if ($task->is_done){echo 'checked';} ?>>
                                 <span class="checkbox__label fs-base"><?= $task->description; ?></span>
                             </label>
                             <button type="submit">Enregistrer</button>
                             <input type="hidden" name="r" value="tasks">
                             <input type="hidden" name="a" value="postUpdate">
-                            <input type="hidden" name="id" value=""<?= $task->id; ?>">
+                            <input type="hidden" name="id" value=""<?= $task->task_id; ?>">
                         </form>
                         <form action="index.php" method="get">
                             <button type="submit">modifier</button>
                             <input type="hidden" name="a" value="getUpdate">
                             <input type="hidden" name="r" value="tasks">
-                            <input type="hidden" name="id" value=""<?= $task->id; ?>">
+                            <input type="hidden" name="id" value=""<?= $task->task_id; ?>">
                         </form>
                         <form action="index.php" method="post">
                             <button type="submit">supprimer</button>
-                            <input type="hidden" name="a" value="postDelete">
+                            <input type="hidden" name="a" value="delete">
                             <input type="hidden" name="r" value="tasks">
-                            <input type="hidden" name="id" value="<?= $task->id; ?>">
+                            <input type="hidden" name="id" value="<?= $task->task_id; ?>">
                         </form>
                 </div>
             </li>

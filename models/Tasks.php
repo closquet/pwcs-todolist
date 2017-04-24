@@ -29,4 +29,20 @@ class Tasks extends Model
         $values = $this->last_insert_id . ', ' . $_SESSION['user']->id;
         $this->insert($table, $col, $values);
     }
+
+
+    public function check_task_owner(){
+        $sql_prepare = 'SELECT * FROM task_user
+                        WHERE task_id = :task_id AND user_id = :user_id';
+
+        $sql_param = [':task_id' => ($_REQUEST['id']), ':user_id' => ($_SESSION['user']->id)];
+        $fetch_mode = 'fetch';
+        return $this->sql_request($sql_prepare, $sql_param, $fetch_mode);
+    }
+
+
+    public function delete_task(){
+        $this->delete('tasks', 'id', $_REQUEST['id']);
+        $this->delete('task_user', 'task_id', $_REQUEST['id']);
+    }
 }
