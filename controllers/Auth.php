@@ -11,6 +11,7 @@ class Auth extends Controller
         $this->model = new Auth_model();
     }
 
+
     public function getLogin(){
         return ['view' => 'views/getLogin.php'];
     }
@@ -28,5 +29,19 @@ class Auth extends Controller
         }
         $_SESSION['user'] = $user;
         header('location: index.php?r=tasks&a=index');
+    }
+
+
+    public function getLogout(){
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+        session_destroy();
+        header('location: index.php');
     }
 }

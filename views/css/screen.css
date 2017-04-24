@@ -1,0 +1,56 @@
+
+label.done {
+    text-decoration: line-through;
+}
+
+span.checkbox__label {
+    font-size: inherit;
+    color: #3c3c3c;
+}
+
+li{
+    margin-bottom: 2em;
+}
+
+form{
+    display: inline-block;
+}
+
+.task button{
+    margin: 0 1em;
+}
+
+header{
+    padding-top: 5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-connected{
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+    border-right: 1px solid black;
+}
+
+.wrapper{
+    width: 680px;
+    margin: 0 auto;
+}
+.new-task-form label{
+    position: relative;
+    display: inline-block;
+}
+.new-task-form input{
+    padding: 1.3em 0.2em 0.2em;
+    font-size: 1.2em;
+}
+.new-task-form span{
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    color: gray;
+    font-size: 0.7em;
+}
+.new-task-form__submit{
+    margin-top: 1em;
+}

@@ -35,12 +35,28 @@ class Model{
         $dbh = $this->connect_db();
         if ($dbh){
             try{
-                $sth = $dbh->prepare($sql_prepare);
+                if (!$sth = $dbh->prepare($sql_prepare)) {
+                    echo 'Database prepare error';
+                    exit;
+                }
                 $sth->execute($sql_param);
-                return $sth->$fetch_mode();
+                if ($fetch_mode){
+                    return $sth->$fetch_mode();
+                }else{
+                    $this->last_insert_id = $dbh->lastInsertId();
+                }
             }catch (PDOException $e){
                 return null;
             }
         }
     }
+
+
+    protected function insert($tab, $col, $val){
+        $sql_prepare = "INSERT INTO $tab($col) VALUES($val)";
+        //$sql_param = [':tab' => $tab, ':col' => $col, ':val' => $val]; //ça ne va pas...
+        $fetch_mode = false;
+        $this->sql_request($sql_prepare, [], $fetch_mode);
+    }
+
 }
